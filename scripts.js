@@ -21,6 +21,7 @@ const xInterval =  (Math.PI * 5/2) / grains;
     }
 })(grains);
 
+
 const points = document.querySelectorAll('.point');
 
 // set point height to sin(x) (x = distance from y axis)
@@ -31,7 +32,7 @@ const points = document.querySelectorAll('.point');
         // convert distance to radians
         let xPosition = i * xInterval - (Math.PI / 2)
         
-        // save this number for later
+        // save this number for later (will become offset angle for timing function)
         point.dataset.x = xPosition
 
         // y = A * sin(x + α) with x = 0, α = point's distance from y-axis
@@ -41,9 +42,9 @@ const points = document.querySelectorAll('.point');
     })
 })();
 
+
+// use t = x in the sine function
 let t = 0;
-
-
 
 setInterval(() => {
     points.forEach(point => {
