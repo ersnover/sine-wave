@@ -12,7 +12,7 @@ const xInterval =  (Math.PI * 5/2) / grains;
 
 // create points with height set to zero
 (renderGrains = (grains) => {
-    Array(grains).forEach(grain => {
+    [...Array(grains)].forEach(i => {
         let point = `<div data-x="0" class="point"></div>`
         
         trigContainer.insertAdjacentHTML('afterbegin', point)
