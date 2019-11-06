@@ -7,18 +7,16 @@ const oppositeLegBottom = document.getElementById('oppositeLegBottom')
 const windowWidth = window.innerWidth;
 const containerHeight = windowWidth / 3
 const grains = windowWidth / 10
-// delta x for each point
+// delta x for each point ( 5π/2 is total x distance on graph)
 const xInterval =  (Math.PI * 5/2) / grains;
 
 // create points with height set to zero
 (renderGrains = (grains) => {
-
-    for (i = 0; i < grains; i++) {
-
+    [...Array(grains).keys()].forEach(i => {
         let point = `<div data-x="0" class="point"></div>`
         
         trigContainer.insertAdjacentHTML('afterbegin', point)
-    }
+    })
 })(grains);
 
 
@@ -69,7 +67,7 @@ setInterval(() => {
     // this is actually two spans pretending to be one span
     // negative percentages are read equal to 0, so that worked out pretty nicely
     oppositeLegTop.style.height = `${oppositeLegHeight}%`
-    oppositeLegBottom.style.height = `${oppositeLegHeight * -1}%`
+    oppositeLegBottom.style.height = `${oppositeLegHeight * - 1}%`
 
 
     oppositeLegTop.style.transform = `translateX(${oppositeLegX}px)`
