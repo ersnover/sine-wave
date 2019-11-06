@@ -27,7 +27,7 @@ const points = document.querySelectorAll('.point');
 
     points.forEach((point, i) => {
 
-        // convert distance to radians
+        // convert distance to radians (starting at -π/2)
         let xPosition = i * xInterval - (Math.PI / 2)
         
         // save this number for later (will become offset angle for timing function)
